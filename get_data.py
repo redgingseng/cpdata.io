@@ -52,7 +52,7 @@ def main():
 
     file_exists = os.path.exists(file_name)
     # 定义表头
-    fieldnames = ["time", "novel_id", "novel_name", "novel_allpopu", "read_total"]
+    fieldnames = ["time", "novel_id", "novel_name", "allpopu_wan", "read_total"]
 
     with open(file_name, "a", newline="", encoding="utf-8-sig") as f: # 使用 utf-8-sig 让 Excel 打开不乱码
         writer = csv.DictWriter(f, fieldnames=fieldnames)
