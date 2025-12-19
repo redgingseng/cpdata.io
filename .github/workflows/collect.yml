@@ -3,11 +3,15 @@ name: Collect GongziCP Data
 on:
   schedule:
     - cron: "*/30 * * * *"   # 每30分钟
-  workflow_dispatch:        # 允许手动触发（测试用）
+  workflow_dispatch:         # 允许手动触发
 
 jobs:
   collect:
     runs-on: ubuntu-latest
+    # --- 新增权限声明 ---
+    permissions:
+      contents: write
+    # ------------------
 
     steps:
       - name: Checkout repo
@@ -29,8 +33,8 @@ jobs:
 
       - name: Commit and push data
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data.csv
-          git commit -m "Update data $(date -u)" || echo "No changes"
-          git push
+          # 检查是否有内容变更，避免因为没有数据更新导致 commit 失败
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update data $(date -u)" && git push)
