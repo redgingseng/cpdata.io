@@ -2,7 +2,7 @@ name: Collect GongziCP Data
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # 每30分钟
+    - cron: "*/12 * * * *"   # 每30分钟
   workflow_dispatch:         # 允许手动触发
 
 jobs:
