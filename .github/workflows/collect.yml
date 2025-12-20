@@ -31,8 +31,8 @@ jobs:
         run: |
           python get_data.py
           python get_data_rain.py
-          python get_data_island.py
-          python get_data_benchmark.py
+          python cp_data_island.py
+          python cp_data_benchmark.py
 
       - name: Commit and push data
         run: |
