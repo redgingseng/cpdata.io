@@ -38,7 +38,7 @@ def fetch_data(novel_id):
 def main():
     # 需要监控的 ID 列表
     target_ids = ["1606051", "2043165", "1736008", "1633197", "1499282"]
-    file_name = "data.csv"
+    file_name = "data_benchmark.csv"
     
     results = []
     for nid in target_ids:
