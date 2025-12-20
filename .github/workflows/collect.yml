@@ -30,11 +30,17 @@ jobs:
       - name: Run data collection
         run: |
           python get_data.py
+          python get_data_rain.py
+          python get_data_island.py
+          python get_data_benchmark.py
 
       - name: Commit and push data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data.csv
+          git add data_island.csv
+          git add data_rain.csv
+          git add data_benchmark.csv
           # 检查是否有内容变更，避免因为没有数据更新导致 commit 失败
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update data $(date -u)" && git push)
