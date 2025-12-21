@@ -37,7 +37,7 @@ def fetch_data(novel_id):
 
 def main():
     # 需要监控的 ID 列表
-    target_ids = ["1952181", "1758077"]
+    target_ids = ["1952181", "1758077", "1990932"]
     file_name = "data.csv"
     
     results = []
